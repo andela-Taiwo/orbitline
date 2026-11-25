@@ -5,7 +5,7 @@ station can see it, and which antenna talks to which satellite, without clashes.
 
 > **Status: foundation only.** The project layout, tooling, time scales, WGS84 geodesy and
 > seeded random streams exist and are tested. Orbit propagation, visibility windows,
-> scheduling and the web UI are not built yet. See [the plan](docs/PLAN.md).
+> scheduling and the independent checker are not built yet. See [the plan](docs/PLAN.md).
 
 ## What it will do
 
@@ -17,7 +17,9 @@ station can see it, and which antenna talks to which satellite, without clashes.
   maintenance, satellites that must not downlink in sunlight, and priority requests.
 - **Scheduling**: assign antennas to passes with no clashes, and explain why a request could
   not be scheduled.
-- **Live view**: a map with ground tracks, station coverage and the schedule on a timeline.
+- **Proof**: an independent checker that re-derives every pass and rule from the schedule
+  alone, and deliberately planted bugs it must catch.
+- **Operate**: a command line and written reports, with no web UI (see [the plan](docs/PLAN.md)).
 
 All randomness comes from a seed, so every run replays exactly.
 
